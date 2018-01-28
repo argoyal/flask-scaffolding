@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  # web service for flask application
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask-scaffolding
+    env_file:
+      local.env
+    command: >
+      /bin/ash -c "
+        flask run --host=0.0.0.0
+      "
+    volumes:
+      - ./src/:/code
+    ports:
+      - "8400:5000"
+
+
