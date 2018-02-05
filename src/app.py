@@ -10,8 +10,8 @@ SETTINGS_FILE = os.environ.get("SETTINGS_FILE", "settings.local_settings")
 application.config.from_object(SETTINGS_FILE)
 
 # Adding all the url rules in the api application
-for url, method, _ in all_urls:
-    application.add_url_rule(url, view_func=method)
+for url, view, methods, _ in all_urls:
+    application.add_url_rule(url, view_func=view, methods=methods)
 
 
 logging.config.dictConfig(application.config["LOGGING"])

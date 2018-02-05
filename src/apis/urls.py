@@ -2,7 +2,7 @@ from apis import views
 
 
 api_urls = [
-    ("/", views.index, "flask scaffolding index url")
+    ("/", views.index, ["GET"], "flask scaffolding index url")
 ]
 
 other_urls = []
