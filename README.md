@@ -1,4 +1,3 @@
-**
 
 ## Flask Scaffolding
 
@@ -28,6 +27,10 @@ and then
 This will run the server at port http://localhost:8400/
 
 The index view will be displayed in your browser.
+
+***Logs***
+
+A `logs` folder is created in the root of the project i.e outside the `src` folder, which is mounted using the docker-compose volume mount. It will contain a file `flask-scaffolding.log` and will contain the project logs.
 
 ***Queries***
 
