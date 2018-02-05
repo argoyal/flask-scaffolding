@@ -15,6 +15,7 @@ services:
       "
     volumes:
       - ./src/:/code
+      - ./logs:/var/log
     ports:
       - "8400:5000"
 
