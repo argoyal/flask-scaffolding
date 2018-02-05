@@ -5,6 +5,7 @@
 This is the very basic flask boilerplate, which can be used to create microservices. This does not have any functionality apart from code organization and any of your code can be used to build over this basic skeleton. This scaffolding is mostly up to date uses python 3.6 and runs inside a docker container.
 
 ***Code Navigation***
+
 This project consists of a main folder `src` which contains all the project files. The files outside the source folder consists of `docker-compose.yml`, `Dockerfile` and a `local.env` file which are used for running the docker containers. The `src` folder contains the entrypoint of the Flask project `app.py`, `settings` folder which contains your application settings and an `apis` folder that stores all your urls and views.
 
 Specify the urls in `urls.py` file in the api folder as list of tuples with following format:
@@ -15,6 +16,7 @@ example:
     ("/", views.index, ["GET"], "index page")
 
 ***Installation***
+
 Running the scaffolding app is very easy. First [install](https://docs.docker.com/install/) docker for your operating system from the docs provided in the docker website. Also [install](https://docs.docker.com/compose/install/) docker-compose
 
 Then run
@@ -28,6 +30,7 @@ This will run the server at port http://localhost:8400/
 The index view will be displayed in your browser.
 
 ***Queries***
+
 For any queries:
 Contact: arpitgoyal.iitkgp@gmail.com
 
