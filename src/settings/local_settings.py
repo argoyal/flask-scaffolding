@@ -3,7 +3,7 @@ import os
 
 DEBUG = True
 LOG_ROOT = os.environ.get("LOG_ROOT")
-LOG_FILENAME = "flask-scaffolding.log"
+LOG_FILENAME = "{}.log".format(os.environ.get("APPLICATION_NAME"))
 
 LOGGING = {
     'version': 1,
