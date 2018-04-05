@@ -1,6 +1,36 @@
 version: '2'
 
 services:
+  # redis broker or cache
+  broker:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    command: --appendonly yes
+
+  # celery service
+  worker:
+    image: flask-scaffolding
+    volumes:
+      - ./src:/code
+      - ./logs:/var/log
+    env_file:
+      local.env
+    command: >
+      /bin/ash -c "
+        while ! nc -z broker 6379;
+        do
+          echo sleeping for broker;
+          sleep 1;
+        done;
+        su -m celery -c 'celery -A app.celery worker --loglevel=info'
+      "
+    depends_on:
+      - broker
+      - web
+
   # web service for flask application
   web:
     build:
@@ -18,5 +48,5 @@ services:
       - ./logs:/var/log
     ports:
       - "8400:5000"
-
-
+    depends_on:
+      - broker

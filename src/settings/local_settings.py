@@ -30,3 +30,7 @@ LOGGING = {
         }
     }
 }
+
+
+CELERY_BROKER_URL = 'redis://broker:6379/0'
+CELERY_RESULT_BACKEND = 'redis://broker:6379/0'

@@ -1,4 +1,6 @@
+from __future__ import absolute_import, unicode_literals
 from flask import Flask
+from celery import Celery
 import os
 import logging.config
 
@@ -27,3 +29,8 @@ for url, view, methods, _ in all_urls:
 
 
 logging.config.dictConfig(application.config["LOGGING"])
+
+celery = Celery(application.name,
+                broker=application.config['CELERY_BROKER_URL'])
+
+celery.conf.update(application.config)

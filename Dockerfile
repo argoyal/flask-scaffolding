@@ -15,3 +15,5 @@ ADD src/requirements.txt /code/
 RUN pip install -r requirements.txt && apk del .build-deps
 
 ADD src/ /code/
+
+RUN adduser -D celery
