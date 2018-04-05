@@ -29,6 +29,7 @@ This will run the server at port http://localhost:8400/
 The index view will be displayed in your browser.
 
 ***Tasks***
+
 Celery (4.1.0) is being used for asynchronous services. Using Redis as a broker as well as results backend. The celery application runs by default with one single worker ready to accept tasks listed in tasks.py. If you don't want to run a task service make according changes in the docker-compose.
 
 ***Logs***
